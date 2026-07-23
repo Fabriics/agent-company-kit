@@ -15,6 +15,7 @@ Massimizzare la leva del founder: task piccoli e finibili, agente e modello gius
 - **Stato:** sei l'UNICO a scrivere `docs/team/STATE.md`; aggiornalo a inizio e fine di ogni ciclo.
 - **Standup:** su richiesta produci `docs/team/STANDUP.md` (fatto / in corso / bloccato / prossimo).
 - **Decisioni:** registra ogni decisione non-founder in `docs/team/DECISIONS.md` (append-only).
+- **Router di segnali:** a ogni ciclo leggi `docs/team/SIGNALS.md`, consegna i segnali 🟡 open spawnando l'agente destinatario col segnale nel brief, poi aggiorna lo stato (🔵 routed → 🟢 done). È così che gli agenti comunicano fra loro: any-to-any nel contenuto, via te nel transito. Vedi AGENT_OPS.md §5.6.
 
 ## Confini
 - Non implementi codice: deleghi sempre.
@@ -26,4 +27,4 @@ Massimizzare la leva del founder: task piccoli e finibili, agente e modello gius
 decisioni di prodotto/scope · spese > 0€ · azioni irreversibili · legale (solo bozze) · credenziali.
 
 ## Protocollo
-`intake → route → brief → execute → gate → report → STATE.md`. Formato report worker: AGENT_OPS.md §5.5.
+`intake → route → brief → execute → gate → report → STATE.md + SIGNALS.md`. Formato report worker: AGENT_OPS.md §5.5.

@@ -47,11 +47,13 @@
 | Decisioni | `docs/team/DECISIONS.md` | Orchestrator + Founder-strategy | decision log **append-only** (data, decisione, perché) |
 | Apprendimenti | `docs/team/LEARNINGS.md` | tutti, **append-only, ognuno nella propria sezione** | pattern di bug, trappole note, prompt vincenti |
 | Standup | `docs/team/STANDUP.md` | Orchestrator (sovrascrive) | ultimo standup: fatto / in corso / bloccato / prossimo |
+| Segnali inter-agente | `docs/team/SIGNALS.md` | tutti (append), Orchestrator (stato) | messaggi indirizzati `@agente`/`@all`: finding, domanda, suggerimento, handoff |
 | Ricerca | `docs/research/` | R&D | verifiche web, free tier, release |
 
-**Regola anti-conflitto:** ogni file ha UN proprietario di scrittura; gli altri leggono. È questo che sostituisce
-il Memory MCP. La skill `learn` è il meccanismo automatico; LEARNINGS.md è il distillato curato. **Mai segreti
-nei file di stato.**
+**Regola anti-conflitto:** ogni file ha UN proprietario di scrittura; gli altri leggono. Uniche eccezioni: i file
+**append-only** (LEARNINGS.md, SIGNALS.md), dove tutti aggiungono in fondo e nessuno riscrive righe altrui. È
+questo che sostituisce il Memory MCP. La skill `learn` è il meccanismo automatico; LEARNINGS.md è il distillato
+curato. **Mai segreti nei file di stato.**
 
 ## 5. Protocolli
 
@@ -75,6 +77,25 @@ Tutto il resto si decide e si documenta in DECISIONS.md.
 ### 5.5 Formato report di fine sessione (ogni worker)
 1) outcome in 1-3 righe · 2) file toccati · 3) verifiche eseguite (comandi/risultati) · 4) rischi aperti ·
 5) eventuale handoff proposto.
+
+### 5.6 Comunicazione inter-agente — "lavagna" + router (any-to-any, ma orchestrato)
+Obiettivo: **ogni agente può raggiungere ogni altro** per migliorare il prodotto, senza mesh peer-to-peer
+(costoso e imprevedibile). Tre livelli, dal più economico al più raro:
+
+1. **Blackboard asincrono (default).** Qualunque agente APPENDE un segnale in `docs/team/SIGNALS.md` indirizzato
+   `@agente` o `@all` (tipo: finding / domanda / suggerimento / handoff). L'**Orchestrator è il router**: a ogni
+   ciclo legge i segnali aperti, li consegna spawnando l'agente destinatario col segnale nel brief, e ne aggiorna
+   lo stato (🟡 open → 🔵 routed → 🟢 done). Il contenuto passa da A a B intatto; l'orchestrator gestisce solo la
+   consegna. Persistente, tracciabile, sopravvive a `/resume`. È la memoria di comunicazione del team.
+2. **Collaborazione live in-sessione.** Per un problema che richiede più teste insieme, l'Orchestrator fa
+   **fan-out** (worker in parallelo sullo stesso problema), poi **sintetizza e incrocia** i report; può rilanciare
+   l'output di un agente dentro un altro (SendMessage) per un botta-e-risposta. Real-time, ma sempre mediato.
+3. **Agent teams nativi (opt-in, "war-room").** Vera deliberazione peer-to-peer live. Experimental, ~7× il costo,
+   non sopravvive a `/resume` → SOLO per sessioni speciali decise dal founder, mai always-on.
+
+Regola invariata: i worker non si spawnano a vicenda. La comunicazione è **any-to-any nel contenuto** (via
+SIGNALS.md), **hub-and-spoke nel transito** (via Orchestrator). È questo che tiene insieme "tutti comunicano" e
+"qualcuno orchestra".
 
 ## 6. Modelli (rubrica operativa)
 
