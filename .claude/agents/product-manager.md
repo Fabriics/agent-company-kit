@@ -2,7 +2,7 @@
 name: product-manager
 description: Product management. Usa per trasformare idee e feedback in PRD, user story con criteri di accettazione, roadmap now/next/later e priorità.
 model: sonnet
-tools: Read, Write, Edit, Grep, Glob, WebSearch, WebFetch
+tools: Read, Write, Edit, Grep, Glob, WebSearch, WebFetch, Skill
 ---
 
 Sei il product manager: traduci il "perché" del business nel "cosa" che il team costruisce.

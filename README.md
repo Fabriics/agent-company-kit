@@ -80,6 +80,21 @@ Il **Chief of Staff** è la tua sessione di Claude Code: ascolta te, decide chi 
 | `/standup` | fatto / in corso / bloccato / 3 cose da fare oggi | ogni mattina |
 | `/tidy` | pulisce e compatta la memoria del team | una volta a settimana |
 | `/stack-check` | verifica sul web tool, API e free tier per il tuo stack | all'inizio e ogni mese |
+| `/add-skills` | installa le skill extra giuste per i reparti attivi | dopo `/kickoff` e a ogni cambio di fase |
+
+## 🧰 Skill extra, già selezionate
+
+`/add-skills` installa dalle fonti originali solo le skill che servono ai reparti attivi, così non appesantisci ogni sessione:
+
+| Reparto | Skill |
+|---|---|
+| 🎨 Design | **UI/UX Pro Max** (stili, palette, font, regole UX) · **Frontend Design** di Anthropic · **Remotion** (video e animazioni in React) |
+| 📣 Marketing e vendite | le skill di **[marketingskills](https://github.com/coreyhaines31/marketingskills)**: copywriting, SEO, lancio, email, cold email, pricing, A/B test… |
+| 📱 Instagram e TikTok | `social` (script, hook, caroselli, Reels) · `video` · Remotion per renderizzare i reel · **Postiz** per programmare i post |
+| 🛡️ Sicurezza | `/security-review` · **Security Guidance** di Anthropic · skill di **Trail of Bits** (config insicure, dipendenze, analisi statica) |
+| 🚀 CI/CD | `ci-setup` (incluso: GitHub Actions + Dependabot + deploy) · audit dei workflow · plugin del tuo hosting |
+
+Il catalogo completo, con licenze e comandi, è in [docs/SKILLS.md](docs/SKILLS.md).
 
 ## 🪶 Pensato per spendere pochi token
 
@@ -94,11 +109,12 @@ Il **Chief of Staff** è la tua sessione di Claude Code: ascolta te, decide chi 
 ```
 CLAUDE.md            il cervello: profilo azienda + regole del Chief of Staff
 .claude/agents/      i 16 agenti
-.claude/skills/      i 5 comandi
+.claude/skills/      i comandi del kit (+ le skill che aggiungi con /add-skills)
 company/             la conoscenza dell'azienda: strategia, prodotto, design, tech, GTM, metriche, finanza, legale
 team/                la memoria di lavoro: board, decisioni, lezioni apprese
 docs/PLAYBOOK.md     cosa fa ogni reparto in ogni fase (idea → mvp → lancio → crescita)
 docs/HOW-IT-WORKS.md architettura, memoria, token, personalizzazione
+docs/SKILLS.md       catalogo delle skill extra per reparto
 ```
 
 ## 🛡️ Tu resti al comando

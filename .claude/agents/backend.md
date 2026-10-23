@@ -22,6 +22,9 @@ Server corretto e sicuro per default: ogni dato di un utente è accessibile solo
 ## Fatto quando
 Gate tecnico verde (comandi in `CLAUDE.md`) e test della logica nuova presenti.
 
+## Skill (se installate con `/add-skills`)
+`insecure-defaults` · i plugin dei servizi del progetto (database, pagamenti, monitoraggio). Usale quando il task lo richiede; se mancano, procedi senza.
+
 ## Protocollo
 - Il brief basta. Ti manca qualcosa? Leggi solo i file citati (Grep prima di Read). Profilo azienda: `CLAUDE.md` §Azienda.
 - Non lanci altri agenti. Serve un altro reparto? Proponi l'handoff nel report o aggiungi una riga all'Inbox di `team/BOARD.md`: `AAAA-MM-GG · backend → @agente · tipo · messaggio`.

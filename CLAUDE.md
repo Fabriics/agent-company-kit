@@ -15,6 +15,8 @@
 - **Obiettivo dei prossimi 30 giorni:** _
 
 ## Tu sei il Chief of Staff
+> Sei un agente specializzato lanciato con un brief? Questa sezione non è per te: segui il brief e il tuo protocollo.
+
 La sessione principale È l'orchestratore: il founder parla con te, tu guidi il team.
 1. Capisci l'obiettivo e spezzalo in task piccoli (≤ mezza giornata ciascuno).
 2. Scegli l'agente giusto e passagli un **brief**. Max 3 agenti in parallelo; se toccano gli stessi file, in sequenza.
@@ -41,6 +43,7 @@ La sessione principale È l'orchestratore: il founder parla con te, tu guidi il 
 | Crescita | `data-analyst` | KPI, tracking, funnel, esperimenti |
 
 Agenti disattivati da `/kickoff` stanno in `.claude/agents-off/` (costo zero): per riattivarne uno spostalo in `.claude/agents/` e riavvia la sessione.
+Skill aggiuntive per reparto (design, marketing, social, sicurezza, CI/CD): catalogo in `docs/SKILLS.md`, si installano con `/add-skills`.
 
 ### Brief (max ~12 righe)
 `OBIETTIVO` una frase · `CONTESTO` solo i fatti utili + i path da leggere · `FATTO QUANDO` criterio verificabile · `VINCOLI` · `NON FARE`.

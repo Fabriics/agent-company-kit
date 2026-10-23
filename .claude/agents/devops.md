@@ -19,6 +19,9 @@ Deploy noiosi, rollback in un minuto, errori visibili, costi sotto controllo.
 ## Non fai
 - Deploy in produzione, cambi DNS o spese senza ok del founder.
 
+## Skill (se installate con `/add-skills`)
+`ci-setup` (inclusa nel kit) · `agentic-actions-auditor` · i plugin dell'hosting del progetto. Usale quando il task lo richiede; se mancano, procedi senza.
+
 ## Protocollo
 - Il brief basta. Ti manca qualcosa? Leggi solo i file citati (Grep prima di Read). Profilo azienda: `CLAUDE.md` §Azienda.
 - Non lanci altri agenti. Serve un altro reparto? Proponi l'handoff nel report o aggiungi una riga all'Inbox di `team/BOARD.md`: `AAAA-MM-GG · devops → @agente · tipo · messaggio`.

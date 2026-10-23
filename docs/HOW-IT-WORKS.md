@@ -15,7 +15,7 @@ flowchart TD
     C <--> M
 ```
 
-- **Il Chief of Staff è la sessione principale**, non un agente separato. In Claude Code i subagent non possono lanciare altri subagent: l'unico punto da cui si coordina il team è la conversazione principale. Le sue regole stanno in `CLAUDE.md`, che viene caricato automaticamente.
+- **Il Chief of Staff è la sessione principale**, non un agente separato: coordinare dal centro evita un passaggio in più e tiene i costi prevedibili. Claude Code permetterebbe agli agenti di lanciarne altri, ma il kit lo vieta per scelta: le catene di agenti moltiplicano i token. Le regole del Chief of Staff stanno in `CLAUDE.md`, caricato automaticamente (anche dagli agenti, che però ignorano quella sezione).
 - **Gli agenti** (`.claude/agents/*.md`) sono specialisti: ricevono un brief, lavorano nel loro contesto, restituiscono un report breve. Claude li sceglie in automatico dalla `description`, oppure li chiami tu: *"usa l'agente marketing per…"*.
 - **Gli handoff passano dal centro:** un agente che ha bisogno di un altro reparto lo scrive nel report o nell'Inbox di `team/BOARD.md`; il Chief of Staff instrada. Così ogni agente può "parlare" con ogni altro, ma i costi restano prevedibili.
 
@@ -38,6 +38,7 @@ flowchart TD
 | `CLAUDE.md` corto | è caricato in ogni singolo messaggio |
 | Agenti non necessari in `.claude/agents-off/` | le loro descrizioni non vengono caricate |
 | Comandi con `disable-model-invocation` | costano zero finché non li lanci |
+| Skill di terze parti installate solo per gli agenti attivi (`/add-skills`) | ogni skill aggiunge la sua descrizione a ogni sessione |
 | Agenti business con strumenti ristretti | meno definizioni di strumenti nel loro contesto |
 | Modelli a livelli (opus / sonnet / haiku) | il volume gira sui modelli economici |
 | Brief ≤ 12 righe con i fatti dentro | l'agente non rilegge mezzo repo |
@@ -91,8 +92,11 @@ Poi aggiungi una riga alla tabella "Chi fa cosa" in `CLAUDE.md` e una sezione in
 
 **Disattivare / riattivare:** sposta il file tra `.claude/agents/` e `.claude/agents-off/`, poi riavvia la sessione.
 
+**Aggiungere skill:** `/add-skills` installa dal catalogo [SKILLS.md](SKILLS.md) solo ciò che serve ai reparti attivi. Gli agenti le trovano da soli (hanno lo strumento `Skill`); il nome delle skill consigliate è scritto nel loro file. Per aggiungere una skill tua al catalogo, mettila nella tabella del reparto con fonte, licenza e comando.
+
 ## 6. Sicurezza
 - `.claude/settings.json` impedisce agli agenti di leggere `.env` e file di chiavi.
+- Le skill di terze parti girano con i permessi dell'agente: `/add-skills` chiede sempre conferma e installa solo da fonti note, nel progetto.
 - Gli agenti preparano, il founder approva: invii, pubblicazioni, spese, deploy in produzione e testi legali definitivi passano sempre da te.
 - Le bozze legali non sono consulenza legale.
 

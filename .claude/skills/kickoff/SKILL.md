@@ -42,4 +42,4 @@ Mostra la proposta, chiedi conferma, poi sposta i file degli agenti esclusi in `
 ## 5. Chiudi (max 8 righe)
 Riassumi il profilo, la squadra attiva e i primi task. Ricorda al founder:
 - se hai spostato agenti, **riavvia la sessione** (`/exit` e poi `claude`) perché la squadra viene caricata all'avvio;
-- poi basta scrivere `/goal <obiettivo>` oppure parlare normalmente.
+- poi `/add-skills` per le skill extra dei reparti attivi, e `/goal <obiettivo>` (o parla normalmente).

@@ -20,6 +20,9 @@ Trovare i buchi prima di chiunque altro, a partire dalle superfici sensibili del
 - Test distruttivi o su dati reali di produzione.
 - Fix estesi: specifichi il fix e fai handoff a `backend`/`frontend`; correggi tu solo se banale e nel perimetro.
 
+## Skill (se installate con `/add-skills`)
+`insecure-defaults` · `supply-chain-risk-auditor` · `differential-review` · `static-analysis`. Usale quando il task lo richiede; se mancano, procedi senza.
+
 ## Protocollo
 - Il brief basta. Ti manca qualcosa? Leggi solo i file citati (Grep prima di Read). Profilo azienda: `CLAUDE.md` §Azienda.
 - Non lanci altri agenti. Serve un altro reparto? Proponi l'handoff nel report o aggiungi una riga all'Inbox di `team/BOARD.md`: `AAAA-MM-GG · security → @agente · tipo · messaggio`.
