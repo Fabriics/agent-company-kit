@@ -1,3 +1,7 @@
-.serena/
 .DS_Store
 node_modules/
+.serena/
+.env
+.env.local
+.env.production
+.claude/settings.local.json
